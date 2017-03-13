@@ -1,0 +1,8 @@
+<notifier threads="1" name="bergamot-notifier-sms">
+    <broker url="amqp://bergamot-rabbitmq" username="bergamot" password="bergamot"/>
+    <notification-engine classname="com.intrbiz.bergamot.notification.engine.sms.SMSEngine">
+        <parameter name="twilio.account" value="" description="The Twillo account SID"/>
+        <parameter name="twilio.token"   value="" description="The Twillo auth token"/>
+        <parameter name="from"           value="" description="The from phone number"/>
+    </notification-engine>
+</notifier>

@@ -1,0 +1,29 @@
+version: '2'
+services:
+  bergamot-nginx:
+    image: bergamotmonitoring/bergamot-nginx:3.0.0-SNAPSHOT
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    networks:
+      - all
+    links:
+      - bergamot-ui
+  bergamot-ui:
+    image: bergamotmonitoring/bergamot-ui:3.0.0-SNAPSHOT
+    networks:
+      - all
+    links:
+      - bergamot-rabbitmq
+      - bergamot-postgresql
+  bergamot-rabbitmq:
+    image: bergamotmonitoring/bergamot-rabbitmq:latest
+    networks:
+      - all
+  bergamot-postgresql:
+    image: bergamotmonitoring/bergamot-postgresql:latest
+    networks:
+      - all
+networks:
+  all:
+    driver: bridge

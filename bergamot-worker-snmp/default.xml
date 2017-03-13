@@ -1,0 +1,4 @@
+<worker name="bergamot-worker-snmp">
+    <broker url="amqp://bergamot-rabbitmq" username="bergamot" password="bergamot"/>
+    <parameter description="The port to send SNMP requests from" name="snmp-port">8161</parameter>
+</worker>

@@ -1,0 +1,5 @@
+<bergamot-agent-manager>
+	<certificate-name country="SomeCountry" state="SomeState" locality="SomePlace" organisation="SomeOrg"/>
+	<file-key-store base="/var/opt/bergamot/agent-manager/certificates"/>
+	<broker password="bergamot" url="amqp://bergamot-rabbitmq" username="bergamot"/>
+</bergamot-agent-manager>

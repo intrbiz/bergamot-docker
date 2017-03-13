@@ -1,0 +1,3 @@
+<worker name="bergamot-worker-dummy">
+    <broker url="amqp://bergamot-rabbitmq" username="bergamot" password="bergamot"/>
+</worker>

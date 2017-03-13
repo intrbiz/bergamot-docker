@@ -1,0 +1,3 @@
+<notifier threads="10" name="bergamot-notifier-webhook">
+    <broker url="amqp://bergamot-rabbitmq" username="bergamot" password="bergamot"/>
+</notifier>

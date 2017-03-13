@@ -1,0 +1,11 @@
+<notifier threads="10" name="bergamot-notifier-email">
+    <broker url="amqp://bergamot-rabbitmq" username="bergamot" password="bergamot"/>
+    <notification-engine classname="com.intrbiz.bergamot.notification.engine.email.EmailEngine">
+        <parameter name="mail.host"     value=""/>
+        <parameter name="mail.tls"      value="true"/>
+        <parameter name="mail.user"     value=""/>
+        <parameter name="mail.password" value=""/>
+        <parameter name="from"          value=""/>
+        <parameter name="healthcheck.admin" value=""/>
+    </notification-engine>
+</notifier>
