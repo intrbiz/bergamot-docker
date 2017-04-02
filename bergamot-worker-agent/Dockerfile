@@ -22,8 +22,7 @@ COPY default.xml /etc/bergamot/worker/agent/default.xml
 COPY log4j.properties /etc/bergamot/worker/agent/log4j.properties
 
 # Expose our ports
-EXPOSE 8090
-EXPOSE 8081
+EXPOSE 15443
 
 # The default config file
 ENV bergamot_config=/etc/bergamot/worker/agent/default.xml

@@ -1,7 +1,7 @@
 version: '2'
 services:
   bergamot-nginx:
-    image: bergamotmonitoring/bergamot-nginx:3.0.0-SNAPSHOT
+    image: bergamotmonitoring/bergamot-ui-nginx-https:3.0.0-SNAPSHOT
     ports:
       - "8080:8080"
       - "8443:8443"

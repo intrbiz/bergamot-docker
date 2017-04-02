@@ -55,7 +55,8 @@ docker_build_app bergamot-cli
 
 # Build the UI
 docker_build_app bergamot-ui
-docker_build_app bergamot-nginx
+docker_build_app bergamot-ui-nginx
+docker_build_app bergamot-ui-nginx-https
 
 # Build the agent manager
 docker_build_app bergamot-agent-manager
@@ -64,6 +65,7 @@ docker_build_app bergamot-agent-manager
 docker_build_app bergamot-notifier-email
 docker_build_app bergamot-notifier-sms
 docker_build_app bergamot-notifier-webhook
+docker_build_app bergamot-notifier-slack
 
 # Build the workers
 docker_build_app bergamot-worker-agent

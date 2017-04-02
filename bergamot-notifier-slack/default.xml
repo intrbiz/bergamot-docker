@@ -1,0 +1,3 @@
+<notifier threads="5" name="bergamot-notifier-slack">
+    <broker url="amqp://bergamot-rabbitmq" username="bergamot" password="bergamot"/>
+</notifier>
