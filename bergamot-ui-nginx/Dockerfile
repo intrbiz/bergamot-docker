@@ -25,12 +25,16 @@ RUN zypper -q -n ref && zypper -q -n in nginx
 # Pid dir
 RUN mkdir -p /run/nginx && chown nginx /run/nginx
 
+# Custom conf dir
+RUN mkdir -p /etc/nginx/conf.d && chown nginx /etc/nginx/conf.d
+
 # User
 USER nginx
 
 # Copy in our configuration
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY balsa_scgi_params.conf /etc/nginx/balsa_scgi_params.conf
+COPY upstream.conf /etc/nginx/conf.d/upstream.conf
 
 # Expose our ports
 EXPOSE 8080
