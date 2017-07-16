@@ -1,0 +1,11 @@
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.9.xsd" xmlns="http://www.hazelcast.com/schema/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <network>
+       <port port-count="20" auto-increment="false">6580</port>
+       <join>
+           <multicast enabled="true">
+               <multicast-group>239.1.1.15</multicast-group>
+               <multicast-port>6579</multicast-port>
+           </multicast>
+       </join>
+    </network>
+</hazelcast>
