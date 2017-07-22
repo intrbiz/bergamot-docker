@@ -11,7 +11,7 @@ RUN mkdir -p /opt/bergamot/hcq
 WORKDIR /opt/bergamot/hcq
 
 # Add our application
-ADD https://files.bergamot-monitoring.org/app/dev/hcq-${hcq_version}.app /opt/bergamot/hcq/hcq.app
+ADD https://files.bergamot-monitoring.org/app/dev/hcq-server-${hcq_version}.app /opt/bergamot/hcq/hcq.app
 
 # Extract the application
 RUN java -Dbootstrap.extract.only=true -jar hcq.app
