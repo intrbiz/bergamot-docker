@@ -4,7 +4,7 @@ function docker_build_base {
     if [ -z "$RESTRICT" -o "$RESTRICT" = "$1" ]; then
         echo "Build base container $1"
         cd $1
-        docker build --no-cache -t $1:latest -t bergamotmonitoring/$1:latest .
+        docker build $DOCKER_OPTS -t $1:latest -t bergamotmonitoring/$1:latest .
         docker push bergamotmonitoring/$1:latest
         cd .
     else
@@ -16,7 +16,7 @@ function docker_build_util {
     if [ -z "$RESTRICT" -o "$RESTRICT" = "$1" ]; then
         echo "Building util container $1"
         cd $1
-        docker build --no-cache -t $1:latest -t bergamotmonitoring/$1:latest .
+        docker build $DOCKER_OPTS -t $1:latest -t bergamotmonitoring/$1:latest .
         docker push bergamotmonitoring/$1:latest
         cd ..
     else
@@ -28,7 +28,7 @@ function docker_build_app {
     if [ -z "$RESTRICT" -o "$RESTRICT" = "$1" ]; then
         echo "Building application container $1 version $BERGAMOT_VERSION"
         cd $1
-        docker build --no-cache --build-arg bergamot_version=$BERGAMOT_VERSION -t $1:$BERGAMOT_VERSION -t bergamotmonitoring/$1:$BERGAMOT_VERSION .
+        docker build $DOCKER_OPTS --build-arg bergamot_version=$BERGAMOT_VERSION -t $1:$BERGAMOT_VERSION -t bergamotmonitoring/$1:$BERGAMOT_VERSION .
         docker push bergamotmonitoring/$1:$BERGAMOT_VERSION
         cd ..
     else
