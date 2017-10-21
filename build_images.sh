@@ -4,7 +4,7 @@ function docker_build_base {
     if [ -z "$RESTRICT" -o "$RESTRICT" = "$1" ]; then
         echo "Build base container $1"
         cd $1
-        docker build $DOCKER_OPTS -t $1:latest -t bergamotmonitoring/$1:latest .
+        docker build --no-cache $DOCKER_OPTS -t $1:latest -t bergamotmonitoring/$1:latest .
         docker push bergamotmonitoring/$1:latest
         cd .
     else
@@ -16,7 +16,7 @@ function docker_build_util {
     if [ -z "$RESTRICT" -o "$RESTRICT" = "$1" ]; then
         echo "Building util container $1"
         cd $1
-        docker build $DOCKER_OPTS -t $1:latest -t bergamotmonitoring/$1:latest .
+        docker build --no-cache $DOCKER_OPTS -t $1:latest -t bergamotmonitoring/$1:latest .
         docker push bergamotmonitoring/$1:latest
         cd ..
     else
@@ -28,7 +28,7 @@ function docker_build_app {
     if [ -z "$RESTRICT" -o "$RESTRICT" = "$1" ]; then
         echo "Building application container $1 version $BERGAMOT_VERSION"
         cd $1
-        docker build $DOCKER_OPTS --build-arg bergamot_version=$BERGAMOT_VERSION -t $1:$BERGAMOT_VERSION -t bergamotmonitoring/$1:$BERGAMOT_VERSION .
+        docker build --no-cache $DOCKER_OPTS --build-arg bergamot_version=$BERGAMOT_VERSION -t $1:$BERGAMOT_VERSION -t bergamotmonitoring/$1:$BERGAMOT_VERSION .
         docker push bergamotmonitoring/$1:$BERGAMOT_VERSION
         cd ..
     else
@@ -47,11 +47,11 @@ export RESTRICT=$2
 docker_build_base bergamot-base
 
 # Build our support images
-docker_build_util bergamot-postgresql
-docker_build_util bergamot-rabbitmq
+#docker_build_util bergamot-postgresql
+#docker_build_util bergamot-rabbitmq
 
 # Build the CLI
-docker_build_app bergamot-cli
+#docker_build_app bergamot-cli
 
 # Build the UI
 docker_build_app bergamot-ui
